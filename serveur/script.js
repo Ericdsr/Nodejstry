@@ -1,14 +1,18 @@
-const http = require('http');
+const express = require('express');
+const app = express();
 
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Bonjour touts le mondes');
+// Route racine
+app.get('/', (req, res) => {
+  res.send('Hello, Express!');
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+// Démarrer le serveur
+app.listen(3000, () => {
+  console.log('Le serveur est en écoute sur le port 3000');
 });
+
+// try recuperation json 
+const fs = require('fs');
+
+const data = JSON.parse(fs.readFileSync('data.json'));
+console.log(data);

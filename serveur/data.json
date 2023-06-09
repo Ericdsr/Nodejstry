@@ -1,4 +1,5 @@
 {
-    "user": "zaedzad",
-    "nickname": "zzdzqss"
-  }
+    "identifiant": 1,
+    "nom": "Jean",
+    "ville": "Londres"
+}
