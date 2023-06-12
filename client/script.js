@@ -1,36 +1,25 @@
-var fetch = document.getElementById('fetcher')
+var fetchs = document.getElementById('fetcher');
 const myRequest1 = new Request("./serveur/data.json");
-
-function myRequest(){
-  fetch('http://localhost:3000/')
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data)
-  })
-  .catch(console.error);
+var try3 = document.getElementById('try');
 
 
+function fetchData() {
+  fetch("http://localhost:3000/")
+    .then(response => response.json())
+    .then(data => {
+             // Créer une nouvelle div
+        const div = document.createElement('div');
+        
+           // Ajouter le contenu de la réponse à la div
+      div.textContent = JSON.stringify(data);
+        
+        // Ajouter la div à la section avec l'id "sect"
+        const section = document.getElementById('sect');
+        section.appendChild(div);
+      console.log(data);
+    })
+    .catch(error => {
+      console.log('Error:', error);
+    });
 }
-
-/*function fetchtry() {
-
-  fetch('http://localhost:3000/')
-  .then(res => res.text())
-  .then(text => JSON.parse(fs.readFileSync('data.json')))
-  .then(json => console.log(json.pageItems))
-}
- */     
- /* data.data.forEach(get => {
-      console.log(data.data)
-      fetcher.innerHTML = `<div class="col-sm-6">
-            <div class="card">
-              <div class="card-body aleatoire">
-                <p class="card-title auteurs"> ${id}</p>
-                <h6 class="card-text citations"> ${auteurs}</h6>
-              </div>
-            </div>
-          </div>`
-  })
-  })
-  .catch(error => console.error(error))
-} */
+fetchData();
