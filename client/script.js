@@ -11,7 +11,14 @@ function fetchData() {
         const div = document.createElement('div');
         
            // Ajouter le contenu de la réponse à la div
-      div.textContent = JSON.stringify(data);
+
+           div.innerHTML= ` <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Data</h5>
+                              <p class="card-text">Nom : ${data.nom}</p>
+                              <p class="card-text">Ville : ${data.ville}</p>
+                            </div>
+                          </div> `
         
         // Ajouter la div à la section avec l'id "sect"
         const section = document.getElementById('sect');
